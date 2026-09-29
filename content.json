@@ -1,0 +1,74 @@
+{
+  "updated": "2026-09-29",
+  "brand": "Chula Vista Live Data",
+  "tagline": "Enhancing government transparency in Chula Vista",
+  "tipLine": "(619) 678-1442",
+  "hero": {
+    "kicker": "Civic livestreams · public records · South Bay",
+    "title": "Watch the city work in public.",
+    "body": "CVLD covers Chula Vista meetings, audits, traffic, elections, and the data trail behind local decisions — live and on replay."
+  },
+  "live": {
+    "label": "Watch live",
+    "primary": {
+      "label": "Live Hub",
+      "href": "https://www.chulavistalivedata.com/live-hub"
+    },
+    "platforms": [
+      { "label": "Rumble", "href": "https://rumble.com/c/ChulaVistaLiveData" },
+      { "label": "Kick", "href": "https://kick.com/chulavistalivedata" },
+      { "label": "YouTube", "href": "https://www.youtube.com/@ChulaVistaLiveData" },
+      { "label": "Twitch", "href": "https://www.twitch.tv/ChulaVistaLiveData" }
+    ]
+  },
+  "quickLinks": [
+    { "label": "News", "href": "https://www.chulavistalivedata.com/news" },
+    { "label": "Traffic", "href": "https://www.chulavistalivedata.com/traffic" },
+    { "label": "Elections", "href": "https://www.chulavistalivedata.com/data/ca/chula-vista/election" },
+    { "label": "Boards", "href": "https://www.chulavistalivedata.com/data/ca/chula-vista/boards" },
+    { "label": "Flock data", "href": "https://www.chulavistalivedata.com/data/ca/chula-vista/police/flock-data" },
+    { "label": "SeeClickFix", "href": "https://www.chulavistalivedata.com/data/ca/chula-vista/SeeClickFix" },
+    { "label": "Local Stars", "href": "https://www.chulavistalivedata.com/data/ca/chula-vista/localstars" },
+    { "label": "San Diego Live Data", "href": "https://www.sandiegolivedata.com/" }
+  ],
+  "stories": [
+    {
+      "eyebrow": "Meetings",
+      "title": "State of the City 2026",
+      "href": "https://www.chulavistalivedata.com/"
+    },
+    {
+      "eyebrow": "Investigations",
+      "title": "Audits and Measure P coverage",
+      "href": "https://www.chulavistalivedata.com/"
+    },
+    {
+      "eyebrow": "Press",
+      "title": "Rohr Park equestrian arena rally",
+      "href": "https://www.chulavistalivedata.com/"
+    },
+    {
+      "eyebrow": "Video",
+      "title": "Chula Vista tobacco permit briefing",
+      "href": "https://www.chulavistalivedata.com/"
+    }
+  ],
+  "support": {
+    "title": "Keep the cameras on",
+    "body": "Independent coverage of Chula Vista government. Tips, clips, and meeting streams stay public when the community backs the work.",
+    "cta": { "label": "Support CVLD", "href": "https://www.buymeacoffee.com/cvld" }
+  },
+  "podcast": [
+    { "label": "Apple", "href": "https://podcasts.apple.com/gb/podcast/chula-vista-live-data/id1675287433" },
+    { "label": "Spotify", "href": "https://open.spotify.com/show/6SJ6kTxqwhuZaoZoJj4cxF" }
+  ],
+  "social": [
+    { "label": "X", "href": "https://x.com/619cvld" },
+    { "label": "Facebook", "href": "https://www.facebook.com/ChulaVistaLiveData" },
+    { "label": "Instagram", "href": "https://instagram.com/619cvld" },
+    { "label": "TikTok", "href": "https://www.tiktok.com/@619cvld" },
+    { "label": "Telegram", "href": "https://t.me/Chulavistalivedata" },
+    { "label": "Truth Social", "href": "https://truthsocial.com/@619cvld" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
+  ]
+}

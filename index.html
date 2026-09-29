@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="responsive-embedded-sizing" content="allow-origins=*">
+  <title>Chula Vista Live Data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f4efe4;
+      --muted: #b7b0a3;
+      --paper: #10140f;
+      --panel: #1a2118;
+      --line: rgba(244, 239, 228, 0.12);
+      --gold: #e2b15a;
+      --live: #ff3b3b;
+      --link: #8fd0a0;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: transparent;
+      color: var(--ink);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+    body { padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    .shell {
+      background:
+        radial-gradient(1200px 400px at 10% -10%, rgba(226, 177, 90, 0.16), transparent 50%),
+        linear-gradient(180deg, #141910 0%, #0c100b 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(0,0,0,.22);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #2a3824;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--gold);
+      border: 1px solid rgba(226,177,90,.35);
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2a1212;
+      color: #ffd0d0;
+      border: 1px solid rgba(255,59,59,.4);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--live);
+      box-shadow: 0 0 0 0 rgba(255,59,59,.7);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 8px rgba(255,59,59,0); }
+    }
+    .hero { padding: 22px 18px 8px; }
+    .kicker {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+    .hero h2 {
+      font-family: Newsreader, Georgia, serif;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.05;
+      margin: 0 0 10px;
+      font-weight: 650;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 18px 6px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .btn.primary { background: var(--gold); color: #1a1408; border-color: transparent; }
+    .btn.ghost { color: var(--ink); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 14px 18px 6px;
+    }
+    .tile {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 12px 11px;
+      min-height: 64px;
+    }
+    .tile span { display: block; color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+    .tile strong { font-size: 14px; font-weight: 600; }
+    .stories {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 10px;
+      padding: 12px 18px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+    .story { padding: 10px 0; border-top: 1px solid var(--line); }
+    .story:first-of-type { border-top: 0; padding-top: 0; }
+    .story small { color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-size: 11px; }
+    .story b { display: block; margin-top: 3px; font-size: 16px; font-family: Newsreader, Georgia, serif; font-weight: 650; }
+    .support p { color: var(--muted); line-height: 1.5; margin: 0 0 14px; }
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .social { display: flex; flex-wrap: wrap; gap: 8px; }
+    .social a { border-bottom: 1px solid transparent; }
+    .social a:hover, .tile:hover, .btn:hover, .story:hover b { color: var(--gold); }
+    @media (max-width: 760px) {
+      .grid, .stories { grid-template-columns: 1fr 1fr; }
+      .top { align-items: flex-start; }
+    }
+    @media (max-width: 520px) {
+      .grid, .stories { grid-template-columns: 1fr; }
+      .brand p { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell" id="app">Loading CVLD home…</div>
+  <script>
+    const FALLBACK = {
+      brand: "Chula Vista Live Data",
+      tagline: "Enhancing government transparency in Chula Vista",
+      tipLine: "(619) 678-1442",
+      hero: {
+        kicker: "Civic livestreams · public records · South Bay",
+        title: "Watch the city work in public.",
+        body: "CVLD covers Chula Vista meetings, audits, traffic, elections, and the data trail behind local decisions."
+      },
+      live: {
+        label: "Watch live",
+        primary: { label: "Live Hub", href: "https://www.chulavistalivedata.com/live-hub" },
+        platforms: [
+          { label: "Rumble", href: "https://rumble.com/c/ChulaVistaLiveData" },
+          { label: "Kick", href: "https://kick.com/chulavistalivedata" }
+        ]
+      },
+      quickLinks: [],
+      stories: [],
+      support: { title: "Keep the cameras on", body: "", cta: { label: "Support CVLD", href: "https://www.buymeacoffee.com/cvld" } },
+      podcast: [],
+      social: []
+    };
+
+    function el(html) {
+      const t = document.createElement("template");
+      t.innerHTML = html.trim();
+      return t.content;
+    }
+
+    function render(data) {
+      const d = Object.assign({}, FALLBACK, data);
+      const platforms = (d.live.platforms || []).map(p =>
+        `<a class="btn ghost" href="${p.href}" target="_top" rel="noopener">${p.label}</a>`
+      ).join("");
+      const tiles = (d.quickLinks || []).map(l =>
+        `<a class="tile" href="${l.href}" target="_top" rel="noopener"><span>Open</span><strong>${l.label}</strong></a>`
+      ).join("");
+      const stories = (d.stories || []).map(s =>
+        `<a class="story" href="${s.href}" target="_top" rel="noopener"><small>${s.eyebrow}</small><b>${s.title}</b></a>`
+      ).join("");
+      const social = (d.social || []).map(s =>
+        `<a href="${s.href}" target="_top" rel="noopener">${s.label}</a>`
+      ).join("");
+      const podcast = (d.podcast || []).map(s =>
+        `<a class="btn ghost" href="${s.href}" target="_top" rel="noopener">${s.label}</a>`
+      ).join("");
+
+      document.getElementById("app").replaceChildren(el(`
+        <header class="top">
+          <div class="brand">
+            <div class="mark">CV</div>
+            <div>
+              <h1>${d.brand}</h1>
+              <p>${d.tagline}</p>
+            </div>
+          </div>
+          <a class="live" href="${d.live.primary.href}" target="_top" rel="noopener">
+            <span class="dot"></span>${d.live.label}
+          </a>
+        </header>
+        <section class="hero">
+          <p class="kicker">${d.hero.kicker}</p>
+          <h2>${d.hero.title}</h2>
+          <p>${d.hero.body}</p>
+        </section>
+        <div class="actions">
+          <a class="btn primary" href="${d.live.primary.href}" target="_top" rel="noopener">${d.live.primary.label}</a>
+          ${platforms}
+          ${podcast}
+        </div>
+        <div class="grid">${tiles}</div>
+        <div class="stories">
+          <div class="card">
+            <h3>On the desk</h3>
+            ${stories}
+          </div>
+          <div class="card support">
+            <h3>${d.support.title}</h3>
+            <p>${d.support.body}</p>
+            <a class="btn primary" href="${d.support.cta.href}" target="_top" rel="noopener">${d.support.cta.label}</a>
+            <p style="margin-top:16px">News tip line<br><strong style="color:var(--ink)">${d.tipLine}</strong></p>
+          </div>
+        </div>
+        <footer class="foot">
+          <div>Updated ${d.updated || ""} · Independent civic coverage</div>
+          <div class="social">${social}</div>
+        </footer>
+      `));
+      pingHeight();
+    }
+
+    function pingHeight() {
+      const h = Math.ceil(document.documentElement.scrollHeight);
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: "cvld-home-resize", height: h }, "*");
+      }
+    }
+
+    fetch("./content.json", { cache: "no-store" })
+      .then(r => r.ok ? r.json() : FALLBACK)
+      .then(render)
+      .catch(() => render(FALLBACK));
+
+    window.addEventListener("resize", pingHeight);
+    new ResizeObserver(pingHeight).observe(document.documentElement);
+  </script>
+</body>
+</html>
