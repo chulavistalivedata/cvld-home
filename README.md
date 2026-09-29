@@ -4,7 +4,11 @@ Self-contained homepage widget for [chulavistalivedata.com](https://www.chulavis
 
 ## Live URL
 
-After GitHub Pages is on for this repo:
+Use this now (jsDelivr, no extra GitHub setting):
+
+https://cdn.jsdelivr.net/gh/chulavistalivedata/cvld-home@main/index.html
+
+Optional cleaner host after Pages is enabled on the repo:
 
 https://chulavistalivedata.github.io/cvld-home/
 
@@ -12,7 +16,7 @@ https://chulavistalivedata.github.io/cvld-home/
 
 1. Open the Home page in Google Sites.
 2. Insert → Embed → **By URL**.
-3. Paste `https://chulavistalivedata.github.io/cvld-home/`
+3. Paste `https://cdn.jsdelivr.net/gh/chulavistalivedata/cvld-home@main/index.html`
 4. Set the embed width to full and height to about **980**.
 
 If the host page allows a script (custom HTML), use `embed.html` so the iframe height can follow the content.
